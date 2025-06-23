@@ -4,11 +4,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+	@Bean
+	public BCryptPasswordEncoder bcryptPasswordEncoder() {
+		
+		return new BCryptPasswordEncoder();
+	}
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -21,7 +28,18 @@ public class SecurityConfig {
                         .anyRequest().denyAll()
                         );
 
+        http
+                .formLogin(auth -> auth.loginPage("/login")                         // 로그인 경로설정 -> 로그인이 필요할 시 자동으로 로그인페이지로 리다이렉트해줌
+                                    .loginProcessingUrl("/loginform")   // 로그인 처리 URL 설정 (null로 설정하면 기본 URL 사용)
+                                    .permitAll()                                            // 로그인 페이지는 모든 사용자에게 허용
+                );
+
+        http
+                .csrf(auth -> auth.disable()); // CSRF 보호 비활성화 (API 서버 등에서는 필요에 따라 활성화할 수 있음)
+                
+
         return http.build();
+
     }
 
 }
