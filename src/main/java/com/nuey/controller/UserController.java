@@ -6,9 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.nuey.dto.SignupReq;
+import com.nuey.service.UserService;
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
-public class LoginController {
+@RequiredArgsConstructor
+public class UserController {
+
+	private final UserService userService;
 
     @GetMapping("/login")
     public String showLoginform() {
@@ -27,9 +33,8 @@ public class LoginController {
 
 	@PostMapping("/signup")
 	public String signup(SignupReq signupReq, Model model) {
-		
-		return "redirect:/";
+		userService.signUp(signupReq);
+		return "redirect:/login";
 	}
-	
     
 }

@@ -1,0 +1,11 @@
+spring:
+    application:
+        name: spring-security
+    datasource:
+        url: jdbc:sqlserver://localhost:1433;databaseName=master
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+mybatis:
+    configuration:
+        map-underscore-to-camel-case: true
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.nuey.dto, com.nuey.entity
