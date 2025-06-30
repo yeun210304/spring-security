@@ -1,11 +1,11 @@
-package com.nuey.service.impl;
+package com.nuey.spring_security.service.impl;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.nuey.entity.User;
-import com.nuey.mapper.UserMapper;
-import com.nuey.service.UserService;
+import com.nuey.spring_security.entity.User;
+import com.nuey.spring_security.mapper.UserMapper;
+import com.nuey.spring_security.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 

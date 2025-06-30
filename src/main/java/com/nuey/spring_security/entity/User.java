@@ -1,4 +1,4 @@
-package com.nuey.entity;
+package com.nuey.spring_security.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
