@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.nuey.dto.SignupReq;
+import com.nuey.entity.User;
 import com.nuey.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -27,13 +27,14 @@ public class UserController {
 	}
 
 	@GetMapping("/signup")
-	public String showSignUpForm() {
+	public String showSignUpForm(Model model) {
+		model.addAttribute("user", new User());
 		return "signupForm";
 	}
 
 	@PostMapping("/signup")
-	public String signup(SignupReq signupReq, Model model) {
-		userService.signUp(signupReq);
+	public String signup(User user, Model model) {
+		userService.signUp(user);
 		return "redirect:/login";
 	}
     

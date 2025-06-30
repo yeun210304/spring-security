@@ -1,9 +1,9 @@
 package com.nuey.service;
 
-import com.nuey.dto.SignupReq;
+import com.nuey.entity.User;
 
 public interface UserService {
 
-	public void signUp(SignupReq signupReq);
+	public void signUp(User signupReq);
 
 }

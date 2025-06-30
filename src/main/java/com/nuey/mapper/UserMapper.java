@@ -1,9 +1,9 @@
 package com.nuey.mapper;
 
-import com.nuey.dto.SignupReq;
+import com.nuey.entity.User;
 
 public interface UserMapper {
 
-	public void insertUser(SignupReq signupReq);
+	public void insertUser(User user);
 	
 }

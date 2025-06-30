@@ -1,21 +1,16 @@
-package com.nuey.dto;
-
-import lombok.Getter;
-import lombok.Setter;
-
-import java.time.LocalDateTime;
+package com.nuey.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignupReq {
-	private int idx;
+public class User {
 	private String username;
 	private String password;
 	private String role; // USER or ADMIN
-	private LocalDateTime createdAt;
 }

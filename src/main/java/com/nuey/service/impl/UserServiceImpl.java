@@ -3,7 +3,7 @@ package com.nuey.service.impl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.nuey.dto.SignupReq;
+import com.nuey.entity.User;
 import com.nuey.mapper.UserMapper;
 import com.nuey.service.UserService;
 
@@ -18,14 +18,14 @@ public class UserServiceImpl implements UserService {
 	private BCryptPasswordEncoder passwordEncoder;
 
 	@Override
-	public void signUp(SignupReq signupReq) {
+	public void signUp(User user) {
 
-		//db에 회원이 존재하는 지 검증. existByUsername 메서드 필요
+		//TODO db에 회원이 존재하는 지 검증. existByUsername 메서드 필요
 
-		SignupReq data = new SignupReq();
-		data.setUsername(signupReq.getUsername());
-		data.setPassword(passwordEncoder.encode(signupReq.getPassword()));
-		data.setRole(signupReq.getRole() != null ? signupReq.getRole() : "USER");
+		User data = new User();
+		data.setUsername(user.getUsername());
+		data.setPassword(passwordEncoder.encode(user.getPassword()));
+		data.setRole(user.getRole() != null ? user.getRole() : "USER");
 
 		userMapper.insertUser(data);
 	}
