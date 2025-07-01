@@ -7,9 +7,9 @@
 <body>
 	<div class="form-container">
 		<h2>회원가입</h2>
-		<form th:action method="post">
-			<input type="text" id="username" name="username" placeholder="Username" required>
-			<input type="password" id="password" name="password" placeholder="Password" required>
+		<form th:object="${user}" th:action method="post">
+			<input type="text" th:field="*{username}" required>
+			<input type="password" th:field="*{password}" required>
 			<button type="submit">Sign up</button>
 		</form>
 	</div>

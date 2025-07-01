@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<form th:action="@{/loginProc}" method="post">
+	<form th:action method="post">
 		<div>
 			<label for="username">Username:</label>
 			<input type="text" id="username" name="username" required>
@@ -22,8 +22,7 @@
 		</div>
 		<div>
 			<button>
-				<a href="/src/main/resources/templates/signupForm.html"
-				th:href="@{/signup}">signUp</a>
+				<a href="/src/main/resources/templates/signupForm.html" th:href="@{/signup}">signUp</a>
 			</button>
 		</div>
 	</form>

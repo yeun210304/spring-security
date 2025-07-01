@@ -8,4 +8,4 @@ mybatis:
     configuration:
         map-underscore-to-camel-case: true
     mapper-locations: classpath:mapper/*.xml
-    type-aliases-package: com.nuey.dto, com.nuey.entity
+    type-aliases-package: com.nuey.spring_security.dto, com.nuey.spring_security.entity
